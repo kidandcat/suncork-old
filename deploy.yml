@@ -1,18 +1,21 @@
 ---
-  hosts: suncork.net:1000
+- hosts: suncork
   vars:
-    http_port: 80
-    max_clients: 200
-  remote_user: root
+    dir: /var/www/suncork
   tasks:
-  - name: ensure apache is at the latest version
-    yum: name=httpd state=latest
-  - name: write the apache config file
-    template: src=/srv/httpd.j2 dest=/etc/httpd.conf
-    notify:
-    - restart apache
-  - name: ensure apache is running (and enable it at boot)
-    service: name=httpd state=started enabled=yes
-  handlers:
-    - name: restart apache
-      service: name=httpd state=restarted
+  - name: Fetch repository
+    git:
+      repo: 'git@github.com:kidandcat/suncork.git'
+      dest: "{{ dir }}"
+  - name: npm install
+    npm:
+      path: "{{ dir }}"
+  - name: npm run build
+    shell: |
+      cd /var/www/suncork
+      npm run build
+  - name: chown www-data
+    file:
+      path: "{{ dir }}"
+      recurse: yes
+      owner: www-data
