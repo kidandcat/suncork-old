@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
+import isMobile from '../js/Mobile'
 
 const SPEED = 0.3;
 const DELAY = 3;
+const HEIGHT = isMobile()?250:400;
 
 class NavBar extends Component {
   constructor() {
@@ -26,7 +28,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     for (let img of document.querySelectorAll('#carouselContainer img')) {
-      img.style.maxHeight = '400px';
+      img.style.maxHeight = HEIGHT + 'px';
       img.style.marginLeft = '50%';
       img.style.transform = 'translateX(-50%)';
       img.style.opacity = 0;
@@ -41,7 +43,9 @@ class NavBar extends Component {
     let visible;
     let previous;
     for (let img of document.querySelectorAll('#carouselContainer img')) {
+      // eslint-disable-next-line
       if (index != this.state.selected) {
+        // eslint-disable-next-line
         if (img.style.opacity == 1 && !previous) {
           previous = img;
         }
@@ -89,12 +93,13 @@ class NavBar extends Component {
 
 let s = {
   nav: {
-    height: "400px",
-    width: "100%",
+    height: HEIGHT + "px",
+    width: "90%",
+    marginLeft: "2.5%",
+    marginTop: "20px",
     backgroundColor: "white"
   },
   imgContainer: {
-
   }
 }
 
