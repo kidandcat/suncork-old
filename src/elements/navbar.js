@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Player, Actions } from '../Player';
+//import { Player, Actions } from '../Player';
 
 class NavBar extends Component {
   render() {
