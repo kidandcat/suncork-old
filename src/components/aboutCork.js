@@ -9,21 +9,21 @@ class clas extends Component {
     render() {
         return (
             <div style={s.container}>
-                <AboutBlock image={eco1} title="How Is Cork Leather Made?">
-                    As it was said earlier this material is waterproof. For washing you will need soft washcloth and warm
-                    water. The same can be done with a baby wipe. Also to remove such spots like ink pen and the like, you
-                    can use alcohol.
+                <AboutBlock image={eco1} title="Cork feature">
+                    Cork leather is a textile of many advantages. This material is 100% natural. It is a eco material. Also this
+                material is durable but lightweight, durable, resistant, unique, soft,waterproof, washable, elastic and
+                hypoallergenic.
                 </AboutBlock>
-                <AboutBlock image={gota1} title="How to clean it?">
+                <AboutBlock image={pluma1} title="How Is Cork Leather Made?">
                     The first stage in the cork production it is cork is left for 6 months to dry out. After this period, it is being
                 steamed and boiled to soften them and to clean them. Then, it is shaved down about the same thickness as
                 paper. To make the cork durable,the sheets are then glued to a textile. And in the finally step is a coating
                 of sealant to keep it from getting dirty.
                 </AboutBlock>
-                <AboutBlock image={pluma1} title="Cork feature">
-                    Cork leather is a textile of many advantages. This material is 100% natural. It is a eco material. Also this
-                material is durable but lightweight, durable, resistant, unique, soft,waterproof, washable, elastic and
-                hypoallergenic.
+                <AboutBlock image={gota1} title="How to clean it?">
+                    As it was said earlier this material is waterproof. For washing you will need soft washcloth and warm
+                    water. The same can be done with a baby wipe. Also to remove such spots like ink pen and the like, you
+                    can use alcohol.
                 </AboutBlock>
             </div>
         );
