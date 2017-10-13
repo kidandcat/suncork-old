@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Player, Actions } from '../Player';
+import { Player, Actions } from '../js/Player';
 
 class Main extends Component {
     change = (event) => {

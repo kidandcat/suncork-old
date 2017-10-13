@@ -4,6 +4,7 @@ import Main from './views/Main'
 import Index from './views/Index'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
+import Cookies from './components/cookies'
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route path="/index" component={Index} />
             <Footer></Footer>
+            <Cookies></Cookies>
           </div>
       </HashRouter>
     );
