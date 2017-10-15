@@ -10,19 +10,19 @@ class clas extends Component {
 
     hide() {
         let cookiesAdvice = document.querySelector('#cookiesAdvice');
-        console.log('anime');
         anime({
             targets: cookiesAdvice,
             translateY: [0, 100],
             duration: 15000,
             complete: () => {
-                cookiesAdvice.remove();
+                try{
+                    cookiesAdvice.remove();
+                }catch(e){}
             }
         });
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
         let ticking = false;
 
         document.querySelector('body').addEventListener('scroll', (e) => {
