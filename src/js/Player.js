@@ -1,5 +1,4 @@
 var Player = {
-    actions: window.actions,
     do: (action, data) => {
         window.dispatchEvent((data) ? new CustomEvent(action, {
             detail: data
