@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 import isMobile from '../js/Mobile'
+import { Player, Actions } from '../js/Player'
 
 class clas extends Component {
     constructor() {
@@ -9,15 +10,16 @@ class clas extends Component {
     }
 
     hide() {
+        Player.do(Actions.cookieMessageHided)
         let cookiesAdvice = document.querySelector('#cookiesAdvice');
         anime({
             targets: cookiesAdvice,
             translateY: [0, 100],
             duration: 15000,
             complete: () => {
-                try{
+                try {
                     cookiesAdvice.remove();
-                }catch(e){}
+                } catch (e) { }
             }
         });
     }
@@ -25,27 +27,28 @@ class clas extends Component {
     componentDidMount() {
         let ticking = false;
 
-        document.querySelector('body').addEventListener('scroll', (e) => {
-            if (!ticking) {
-                setTimeout(() => {
-                    this.scrollTime = this.scrollTime + 1;
-                    if (this.scrollTime >= 3) {
-                        this.hide();
-                    } else {
-                        ticking = false;
-                    }
-                }, 500);
-            }
-            ticking = true;
-        });
+        if (!window.localStorage.getItem('cookiesAccepted'))
+            document.querySelector('body').addEventListener('scroll', (e) => {
+                if (!ticking) {
+                    setTimeout(() => {
+                        this.scrollTime = this.scrollTime + 1;
+                        if (this.scrollTime >= 3) {
+                            this.hide();
+                            window.localStorage.setItem('cookiesAccepted', 'yes');
+                        } else {
+                            ticking = false;
+                        }
+                    }, 500);
+                }
+                ticking = true;
+            });
     }
 
     render() {
         if (window.localStorage.getItem('cookiesAccepted')) {
+            Player.do(Actions.cookieMessageHided)
             return (null);
         }
-
-        window.localStorage.setItem('cookiesAccepted', 'yes');
 
         return (
             <div style={s.container} id="cookiesAdvice">
@@ -64,22 +67,22 @@ let s = {
         position: 'fixed',
         bottom: 0,
         width: '100%',
-        height: isMobile()?'80px':'40px',
+        height: isMobile() ? '80px' : '40px',
         borderTop: '1px solid black'
     },
     text: {
         display: 'inline-block',
         marginTop: '20px',
-        transform: isMobile()?'translateY(-10%)':'translateY(-50%)',
-        marginLeft: isMobile()?'8px':'20px',
-        fontSize: isMobile()?'0.85em':'1em'
+        transform: isMobile() ? 'translateY(-10%)' : 'translateY(-50%)',
+        marginLeft: isMobile() ? '8px' : '20px',
+        fontSize: isMobile() ? '0.85em' : '1em'
     },
     moreInfo: {
         display: 'inline-block',
-        marginTop: isMobile()?'0':'20px',
-        marginLeft: isMobile()?'150px':'20px',
-        transform: isMobile()?'translateY(-130%)':'translateY(-50%)',
-        fontSize: isMobile()?'0.85em':'1em'
+        marginTop: isMobile() ? '0' : '20px',
+        marginLeft: isMobile() ? '150px' : '20px',
+        transform: isMobile() ? 'translateY(-130%)' : 'translateY(-50%)',
+        fontSize: isMobile() ? '0.85em' : '1em'
     }
 }
 

@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { Player, Actions } from '../js/Player'
 
 class clas extends Component {
+  click = () => {
+    Player.do(Actions.changeTitle, "title changed");
+  }
+
   render() {
     return (
       <div style={s.container}>
-        <p style={s.copy}>
+        <p style={s.copy} onClick={this.click}>
           Copyright © {new Date().getFullYear()} SUNCORK
         </p>
       </div>
