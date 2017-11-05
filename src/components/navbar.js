@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import logo from '../images/logo_sin_fondo.png'
 import anime from 'animejs'
+import Menu from './menu'
 
 class NavBar extends Component {
   constructor() {
@@ -74,19 +74,20 @@ class NavBar extends Component {
     this.setMode();
     return (
       <div style={s.nav} ref={el => { this._nav = el }}>
-        <img src={logo} style={s.image} alt="logo" />
-        <div style={s.right}>
-          {/*<a href="#/index" style={s.link}>link1</a>*/}
-        </div>
+        <Menu></Menu>
+        <a style={s.title}>SUNCORK</a>
       </div>
     );
   }
 }
 
 let s = {
-  image: {
-    height: '100%',
-    flex: "0 0"
+  title: {
+    fontSize: '2em',
+    display: 'inline-block',
+    marginTop: '7px',
+    marginLeft: '50%',
+    transform: 'translateX(-50%) translateX(-70px)'
   },
   right: {
     height: "100%",
