@@ -46,7 +46,11 @@ let s = {
 }
 
 if(isMobile()){
-    s.container.flexWrap = "wrap";
+    s.container = {
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-around"
+    }
 }
 
 export default clas;

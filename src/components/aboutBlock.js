@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import isMobile from '../js/Mobile'
 
 class clas extends Component {
     render() {
@@ -31,6 +32,12 @@ let s = {
     },
     text: {
         textAlign: "center"
+    }
+}
+
+if(isMobile()){
+    s.block = {
+        margin: "100px 20px 0 20px"
     }
 }
 
