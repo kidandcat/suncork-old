@@ -20,7 +20,8 @@ let s = {
     border: 'none',
     background: 'none',
     padding: '15px',
-    fontSize: '1em'
+    fontSize: '1em',
+    outline: 'none'
   },
   container: {
 

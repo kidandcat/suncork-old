@@ -21,7 +21,7 @@ let s = {
         margin: "100px 50px 0 50px"
     },
     image: {
-        height: "130px",
+        height: "60px",
         marginLeft: "50%",
         transform: "translateX(-50%)"
     },
